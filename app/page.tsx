@@ -1,113 +1,253 @@
-import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Progress } from "@/components/ui/progress";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { FaXTwitter } from "react-icons/fa6";
+import {
+  TbBrandFacebook,
+  TbBrandInstagram,
+  TbBrandLinkedin,
+  TbBrandYoutube,
+  TbBrandHtml5,
+  TbBrandJavascript,
+  TbBrandTypescript,
+  TbBrandCss3,
+  TbBrandTailwind,
+  TbBrandReact,
+  TbBrandNextjs,
+  TbBrandSvelte,
+} from "react-icons/tb";
+import { Badge } from "@/components/ui/badge";
 
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import Link from "next/link";
+import React from "react";
+import { Button } from "@/components/ui/button";
 export default function Home() {
+  const socials = [
+    {
+      name: "Facebook",
+      link: "https://facebok.com/dondycles",
+      icon: <TbBrandFacebook />,
+    },
+    {
+      name: "X",
+      link: "https://x.com/dondycles",
+      icon: <FaXTwitter />,
+    },
+    {
+      name: "Instagram",
+      link: "https://instagram.com/dondycles",
+      icon: <TbBrandInstagram />,
+    },
+    {
+      name: "LinkedIn",
+      link: "https://linkedin.com/in/john-rod-dondoyano",
+      icon: <TbBrandLinkedin />,
+    },
+    {
+      name: "YouTube",
+      link: "https://youtube.com/johnroddondoyano",
+      icon: <TbBrandYoutube />,
+    },
+  ];
+  const skills = [
+    { skill: "HTML", knowledge: 80, icons: [<TbBrandHtml5 />] },
+    { skill: "CSS", knowledge: 80, icons: [<TbBrandCss3 />] },
+    { skill: "TailwindCSS", knowledge: 60, icons: [<TbBrandTailwind />] },
+    {
+      skill: "JS/TS",
+      knowledge: 50,
+      icons: [<TbBrandJavascript />, <TbBrandTypescript />],
+    },
+    {
+      skill: "NextJS/React",
+      knowledge: 50,
+      icons: [<TbBrandNextjs />, <TbBrandReact />],
+    },
+    { skill: "SvelteKit", knowledge: 20, icons: [<TbBrandSvelte />] },
+  ];
+  const experiences = [
+    {
+      date: "Jul 2023 - Nov 2023",
+      company: "HeroeZ!",
+      job: "Front-End Web Dev.",
+      img: "/hz.jpg",
+      skills: ["NextJS", "ViteJS", "TailwindCSS"],
+      desc: "Built a website for showcasing and minting NFTs. I build the website with NextJS while the minting page was built with ViteJS.",
+      links: [
+        { link: "https://heroe-z-kousei.vercel.app", name: "Main Website" },
+        {
+          link: "https://herorez-mint-vite.vercel.app/",
+          name: "Minting Website",
+        },
+      ],
+    },
+    {
+      date: "Feb 2023 - May 2023",
+      company: "MGHS Solution And Advertising Services",
+      job: "Junior Web Dev. (Internship)",
+      img: "/mghs.jpg",
+      skills: ["WordPress", "Elementor", "MS Excel"],
+      desc: "Maintained, updated, and redesigned a client's WordPress website. ",
+      links: [],
+    },
+    {
+      date: "Jul 2022 - Dec 2022",
+      company: "Studio CXGNUS",
+      job: "Front-End Web Dev.",
+      img: "/studiocxgnus.jpg",
+      skills: ["HTML", "CSS", "Vanilla JS", "NextJS", "TailwindCSS"],
+      desc: "Built a website for showcasing and minting NFTs. I build the website with Vanilla JS only but later on I learned NextJS and remade it with NextJS.",
+      links: [
+        {
+          link: "https://studiocxgnus-vanilla.vercel.app/",
+          name: "Vanilla JS Website",
+        },
+        {
+          link: "https://studiocxgnus-react.vercel.app/",
+          name: "React Version Website",
+        },
+      ],
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+    <main className="w-full p-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 2xl:px-96 space-y-4">
+      <Card>
+        <CardHeader className="flex-row items-center gap-4">
+          <Avatar>
+            <AvatarImage src="/avatar1.jpg" />
+            <AvatarFallback>JR</AvatarFallback>
+          </Avatar>
+          <div>
+            <CardTitle>John Rod Dondoyano</CardTitle>
+            <CardDescription>Front-End Web Developer</CardDescription>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <p className="indent-4">
+            I am a self-taught web developer who pulls up an all-nighter, holds
+            a bachelor's degree in computer engineering. I split my time between
+            music and exploring the world of web development. In fact, I
+            achieved millions of views with my piano covers on YouTube.
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+          <br />
+          <p className="indent-4">
+            I really enjoy developing and designing websites! Learning web
+            development is hard at first but later on I managed to enhance my
+            knowledge about HTML, CSS, and JavaScript from YouTube tutorials and
+            online lessons.
           </p>
-        </a>
+        </CardContent>
+        <CardFooter className="justify-center gap-2">
+          {socials.map((social) => {
+            return (
+              <Link className="text-2xl" target="_blank" href={social.link}>
+                {social.icon}
+              </Link>
+            );
+          })}
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Skills</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableCaption>
+              These are the skills I acquired from building websites out of
+              curiousity, YouTube tutorials, and side project experiences.
+            </TableCaption>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            <TableBody>
+              {skills.map((skill) => {
+                return (
+                  <TableRow>
+                    <TableCell className="flex flex-row items-center gap-2 w-fit">
+                      <p>{skill.skill}</p>
+                      <div className="flex flex-row text-2xl">
+                        {skill.icons}
+                      </div>
+                    </TableCell>
+                    <TableCell className="w-full">
+                      <Progress value={skill.knowledge} />
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </CardContent>
+        <CardFooter className="justify-center gap-2"></CardFooter>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Experiences</CardTitle>
+        </CardHeader>
+        <CardContent className="gap-4 flex-col items-start flex">
+          {experiences.map((exp) => {
+            return (
+              <React.Fragment key={exp.job}>
+                <div className="flex sm:flex-row flex-col gap-4 items-start">
+                  <Avatar className="w-16 h-16">
+                    <AvatarImage src={exp.img} />
+                    <AvatarFallback>{exp.company}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-semibold text-lg">{exp.job}</p>
+                    <p className="">{exp.company}</p>
+                    <p className="text-muted-foreground text-sm">{exp.date}</p>
+                    <p className=" mt-2">{exp.desc}</p>
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {exp.skills.map((skill) => {
+                        return (
+                          <Badge key={skill} variant="default">
+                            {skill}
+                          </Badge>
+                        );
+                      })}
+                    </div>
+                    {exp.links.length ? (
+                      <div className="flex flex-row gap-2 items-center mt-2">
+                        <p className="text-muted-foreground">links:</p>
+                        {exp.links.map((link) => {
+                          return (
+                            <Link
+                              key={link.link}
+                              href={link.link}
+                              target="_blank"
+                              className="underline"
+                            >
+                              {link.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                <Separator className="last:hidden" />
+              </React.Fragment>
+            );
+          })}
+        </CardContent>
+      </Card>
     </main>
   );
 }
