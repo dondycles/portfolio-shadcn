@@ -275,7 +275,7 @@ export default function Home() {
                       })}
                     </div>
                     {exp.links.length ? (
-                      <div className="flex flex-row gap-2 items-center mt-2 text-sm">
+                      <div className="flex flex-row flex-wrap gap-2 items-center mt-2 text-sm">
                         {exp.links.map((link) => {
                           return (
                             <Link
