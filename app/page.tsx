@@ -23,6 +23,7 @@ import {
   TbBrandReact,
   TbBrandNextjs,
   TbBrandSvelte,
+  TbBrandGithub,
 } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 
@@ -64,6 +65,11 @@ export default function Home() {
       name: "YouTube",
       link: "https://youtube.com/johnroddondoyano",
       icon: <TbBrandYoutube />,
+    },
+    {
+      name: "GitHub",
+      link: "https://github.com/dondycles",
+      icon: <TbBrandGithub />,
     },
   ];
   const skills = [
@@ -131,11 +137,51 @@ export default function Home() {
       ],
     },
   ];
+  const otherprojects = [
+    {
+      name: "Expen//Save",
+      desc: "Simplify your finances with ease. Track expenses, set savings, and gain insights into your spending habits.",
+      link: "https://expensave-shadcn.vercel.app",
+      skills: [
+        "NextJS",
+        "Supabase",
+        "shadcn/ui",
+        "TailwindCSS",
+        "TanStack Query",
+      ],
+      img: "/es.png",
+      gh: "https://github.com/dondycles/expensave-shadcn",
+    },
+    {
+      name: "My Official Website",
+      desc: "A light website to showcase my music career.",
+      link: "https://johnrodxpianist.site",
+      skills: ["NextJS", "NextUI", "TailwindCSS", "Zustand"],
+      img: "/jr.png",
+      gh: "https://github.com/dondycles/johnrodxpianist",
+    },
+    {
+      name: "Wheel Of Pearl",
+      desc: "Web application you can use to help you decide in life.",
+      link: "https://wheel-of-pearl.vercel.app/",
+      skills: ["NextJS", "TailwindCSS"],
+      img: "/wop.png",
+      gh: "https://github.com/dondycles/wheel-of-pearl",
+    },
+    {
+      name: "Tapxiety",
+      desc: "A simple web game to ease your anxiety.",
+      link: "https://tapxiety.vercel.app/",
+      skills: ["NextJS", "NextUI", "TailwindCSS", "Zustand", "Framer Motion"],
+      img: "/favicon.ico",
+      gh: "https://github.com/dondycles/tapxiety",
+    },
+  ];
   return (
     <main className="w-full p-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 2xl:px-96 space-y-4">
       <Card>
         <CardHeader className="flex-row items-center gap-4">
-          <Avatar>
+          <Avatar className="w-24 h-24">
             <AvatarImage src="/avatar1.jpg" />
             <AvatarFallback>JR</AvatarFallback>
           </Avatar>
@@ -236,7 +282,7 @@ export default function Home() {
                               key={link.link}
                               href={link.link}
                               target="_blank"
-                              className="underline flex items-center gap-1"
+                              className="underline flex items-center gap-1 "
                             >
                               {link.name}
                               <ExternalLink className="w-4 h-4" />
@@ -245,6 +291,62 @@ export default function Home() {
                         })}
                       </div>
                     ) : null}
+                  </div>
+                </div>
+                <Separator className="last:hidden" />
+              </React.Fragment>
+            );
+          })}
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Other Projects</CardTitle>
+          <CardDescription>
+            These are the projects I made outside of work or academics. In
+            short, just for fun.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="gap-4 flex-col items-start flex">
+          {otherprojects.map((project) => {
+            return (
+              <React.Fragment key={project.name}>
+                <div className="flex sm:flex-row flex-col gap-4 items-start">
+                  <Avatar className="w-16 h-16 bg-black">
+                    <AvatarImage src={project.img} />
+                    <AvatarFallback>{project.name}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <div className="flex gap-2 items-center">
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        className="font-semibold text-lg flex items-center gap-1"
+                      >
+                        {project.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </Link>
+                      <Separator orientation="vertical" className="h-4" />
+
+                      <Link
+                        href={project.gh}
+                        target="_blank"
+                        className="text-2xl"
+                      >
+                        <TbBrandGithub />
+                      </Link>
+                    </div>
+
+                    <p>{project.desc}</p>
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {project.skills.map((skill) => {
+                        return (
+                          <Badge key={skill} variant="default">
+                            {skill}
+                          </Badge>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
                 <Separator className="last:hidden" />
