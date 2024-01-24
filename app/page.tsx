@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 export default function Home() {
   const socials = [
     {
@@ -105,7 +105,12 @@ export default function Home() {
       img: "/mghs.jpg",
       skills: ["WordPress", "Elementor", "MS Excel"],
       desc: "Maintained, updated, and redesigned a client's WordPress website. ",
-      links: [],
+      links: [
+        {
+          link: "https://themghs.com",
+          name: "Official Website",
+        },
+      ],
     },
     {
       date: "Jul 2022 - Dec 2022",
@@ -224,17 +229,17 @@ export default function Home() {
                       })}
                     </div>
                     {exp.links.length ? (
-                      <div className="flex flex-row gap-2 items-center mt-2">
-                        <p className="text-muted-foreground">links:</p>
+                      <div className="flex flex-row gap-2 items-center mt-2 text-sm">
                         {exp.links.map((link) => {
                           return (
                             <Link
                               key={link.link}
                               href={link.link}
                               target="_blank"
-                              className="underline"
+                              className="underline flex items-center gap-1"
                             >
                               {link.name}
+                              <ExternalLink className="w-4 h-4" />
                             </Link>
                           );
                         })}
