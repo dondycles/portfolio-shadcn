@@ -16,6 +16,37 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "John Rod Dondoyano",
   description: "John Rod Dondoyano - Portfolio",
+  metadataBase: new URL("https://johnrod.dev/"),
+  themeColor: "#171717",
+  twitter: {
+    title: "John Rod Dondoyano",
+    description: "John Rod Dondoyano - Portfolio",
+    card: "summary_large_image",
+    creator: "@dondycles",
+    images: {
+      url: "/summary.png",
+      alt: "John Rod Dondoyano",
+    },
+  },
+  openGraph: {
+    title: "John Rod Dondoyano",
+    description: "John Rod Dondoyano - Portfolio",
+    type: "website",
+    siteName: "John Rod Dondoyano",
+    url: "https://johnrod.dev",
+    images: [
+      {
+        url: "/summary.png",
+        width: 800,
+        height: 800,
+      },
+      {
+        url: "/summary.png",
+        width: 1920,
+        height: 1080,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
