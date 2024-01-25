@@ -24,6 +24,9 @@ import {
   TbBrandNextjs,
   TbBrandSvelte,
   TbBrandGithub,
+  TbBrandSupabase,
+  TbBrandWordpress,
+  TbBrandFirebase,
 } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 
@@ -74,20 +77,29 @@ export default function Home() {
     },
   ];
   const skills = [
-    { skill: "HTML", knowledge: 80, icons: [<TbBrandHtml5 />] },
-    { skill: "CSS", knowledge: 80, icons: [<TbBrandCss3 />] },
-    { skill: "TailwindCSS", knowledge: 60, icons: [<TbBrandTailwind />] },
+    { skill: "HTML", icons: [<TbBrandHtml5 />] },
+    { skill: "CSS", icons: [<TbBrandCss3 />] },
+    { skill: "TailwindCSS", icons: [<TbBrandTailwind />] },
     {
-      skill: "JS/TS",
-      knowledge: 50,
-      icons: [<TbBrandJavascript />, <TbBrandTypescript />],
+      skill: "JavaScript",
+      icons: [<TbBrandJavascript />],
     },
     {
-      skill: "NextJS/React",
-      knowledge: 50,
-      icons: [<TbBrandNextjs />, <TbBrandReact />],
+      skill: "TypeScript",
+      icons: [<TbBrandTypescript />],
     },
-    { skill: "SvelteKit", knowledge: 20, icons: [<TbBrandSvelte />] },
+    {
+      skill: "NextJS",
+      icons: [<TbBrandNextjs />],
+    },
+    {
+      skill: "ReactJS",
+      icons: [<TbBrandReact />],
+    },
+    { skill: "SvelteKit", icons: [<TbBrandSvelte />] },
+    { skill: "WordPress", icons: [<TbBrandWordpress />] },
+    { skill: "Supabase", icons: [<TbBrandSupabase />] },
+    { skill: "Firebase", icons: [<TbBrandFirebase />] },
   ];
   const experiences = [
     {
