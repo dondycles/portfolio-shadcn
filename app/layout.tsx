@@ -4,7 +4,9 @@ import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Code, Code2 } from "lucide-react";
+import { Code, Code2, Download } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600", "800", "900"],
@@ -36,7 +38,19 @@ export default function RootLayout({
             <p className="font-semibold text-2xl flex items-center gap-1">
               <Code /> JRD <Code2 />
             </p>
-            <ThemeToggle />
+            <div className="flex gap-4">
+              <ThemeToggle />
+              <Button asChild variant={"default"}>
+                <Link
+                  href="/john-rod-dondoyano-resume.pdf"
+                  target="_blank"
+                  download
+                >
+                  Resume
+                  <Download className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
           </nav>
           <ScrollArea>{children}</ScrollArea>
         </ThemeProvider>

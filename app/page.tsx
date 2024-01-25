@@ -94,7 +94,7 @@ export default function Home() {
       company: "HeroeZ!",
       job: "Front-End Web Dev.",
       img: "/hz.jpg",
-      skills: ["NextJS", "ViteJS", "TailwindCSS"],
+      skills: ["NextJS", "NextUI", "ViteJS", "TailwindCSS", "Zustand"],
       desc: "Built a website for showcasing and minting NFTs. I build the website with NextJS while the minting page was built with ViteJS.",
       links: [
         { link: "https://heroe-z-kousei.vercel.app", name: "Main Website" },
