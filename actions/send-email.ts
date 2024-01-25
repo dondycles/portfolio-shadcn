@@ -15,7 +15,7 @@ export const sendemail = async (values: Values) => {
   if (!values.message) return { error: "No Data At Message" };
   try {
     resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "resume@johnrod.dev",
       to: "johnrod.dondoyano@gmail.com",
       subject: values.subject,
       text: values.message,
