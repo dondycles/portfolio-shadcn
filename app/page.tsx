@@ -180,42 +180,44 @@ export default function Home() {
   return (
     <main className="w-full h-fit system-padding 6 space-y-4">
       {/* intro */}
-      <Card>
-        <CardHeader className="flex-row items-center gap-4">
-          <Avatar className="w-24 h-24">
-            <AvatarImage src="/avatar1.jpg" />
-            <AvatarFallback>JR</AvatarFallback>
-          </Avatar>
-          <div>
-            <CardTitle>John Rod Dondoyano</CardTitle>
-            <CardDescription>Front-End Web Developer</CardDescription>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <p className="indent-4">
-            I am a self-taught web developer who pulls up an all-nighter, holds
-            a bachelor's degree in computer engineering. I split my time between
-            music and exploring the world of web development. In fact, I
-            achieved millions of views with my piano covers on YouTube.
-          </p>
-          <br />
-          <p className="indent-4">
-            I really enjoy developing and designing websites! Learning web
-            development is hard at first but later on I managed to enhance my
-            knowledge about HTML, CSS, and JavaScript from YouTube tutorials and
-            online lessons.
-          </p>
-        </CardContent>
-        <CardFooter className="justify-center gap-2">
-          {socials.map((social) => {
-            return (
-              <Link className="text-2xl" target="_blank" href={social.link}>
-                {social.icon}
-              </Link>
-            );
-          })}
-        </CardFooter>
-      </Card>
+      <header>
+        <Card>
+          <CardHeader className="flex-row items-center gap-4">
+            <Avatar className="w-24 h-24">
+              <AvatarImage src="/avatar1.jpg" />
+              <AvatarFallback>JR</AvatarFallback>
+            </Avatar>
+            <div>
+              <CardTitle>John Rod Dondoyano</CardTitle>
+              <CardDescription>Front-End Web Developer</CardDescription>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="indent-4">
+              I am a self-taught web developer who pulls up an all-nighter,
+              holds a bachelor's degree in computer engineering. I split my time
+              between music and exploring the world of web development. In fact,
+              I achieved millions of views with my piano covers on YouTube.
+            </p>
+            <br />
+            <p className="indent-4">
+              I really enjoy developing and designing websites! Learning web
+              development is hard at first but later on I managed to enhance my
+              knowledge about HTML, CSS, and JavaScript from YouTube tutorials
+              and online lessons.
+            </p>
+          </CardContent>
+          <CardFooter className="justify-center gap-2">
+            {socials.map((social) => {
+              return (
+                <Link className="text-2xl" target="_blank" href={social.link}>
+                  {social.icon}
+                </Link>
+              );
+            })}
+          </CardFooter>
+        </Card>
+      </header>
       {/* skills */}
       <Card>
         <CardHeader>
@@ -363,6 +365,23 @@ export default function Home() {
           })}
         </CardContent>
       </Card>
+      <footer className="space-y-4">
+        <div className="flex flex-row gap-2 justify-center">
+          {" "}
+          {socials.map((social) => {
+            return (
+              <Link className="text-xl" target="_blank" href={social.link}>
+                {social.icon}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="text-muted-foreground text-xs flex items-center gap-4 justify-center">
+          <p className="text-center">All Rights Reserved 2024</p>
+          <Separator orientation="vertical" className="h-4" />
+          <p className="text-center">John Rod Dondoyano</p>
+        </div>
+      </footer>
     </main>
   );
 }
