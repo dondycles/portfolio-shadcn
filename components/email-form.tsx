@@ -23,7 +23,7 @@ const formSchema = z.object({
     message: "Please input your message.",
   }),
   email: z.string().email(),
-  subject: z.string().min(0, {
+  subject: z.string().min(1, {
     message: "Please input subject.",
   }),
 });
@@ -48,7 +48,11 @@ export function EmailForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="email@example.com" {...field} />
+                <Input
+                  disabled={form.formState.isSubmitting}
+                  placeholder="email@example.com"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -60,7 +64,11 @@ export function EmailForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Subject" {...field} />
+                <Input
+                  disabled={form.formState.isSubmitting}
+                  placeholder="Subject"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -72,13 +80,19 @@ export function EmailForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea placeholder="Message" {...field} />
+                <Textarea
+                  disabled={form.formState.isSubmitting}
+                  placeholder="Message"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={form.formState.isSubmitting}>
+          Send
+        </Button>
       </form>
     </Form>
   );
