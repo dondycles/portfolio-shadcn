@@ -33,9 +33,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <nav className="w-full system-padding flex items-center justify-between border-b-border border-b-solid border-b-[1px]">
-            <h1 className="font-semibold text-2xl flex items-center gap-1">
+            <p className="font-semibold text-2xl flex items-center gap-1">
               <Code /> JRD <Code2 />
-            </h1>
+            </p>
             <ThemeToggle />
           </nav>
           <ScrollArea>{children}</ScrollArea>
