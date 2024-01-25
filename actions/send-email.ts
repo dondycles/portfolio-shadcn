@@ -10,7 +10,7 @@ type Values = {
 };
 export const sendemail = async (values: Values) => {
   if (!values) return { error: "No Data At All" };
-  if (!values.email) return { error: "No Data At Email" };
+  if (!values.message) return { error: "No Data At Email" };
   if (!values.subject) return { error: "No Data At Subject" };
   if (!values.message) return { error: "No Data At Message" };
   try {
@@ -22,5 +22,7 @@ export const sendemail = async (values: Values) => {
     });
   } catch (error) {
     console.log(error);
+    if (error) return { error: error };
   }
+  return { success: "Sent!" };
 };
