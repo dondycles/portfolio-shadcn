@@ -179,6 +179,7 @@ export default function Home() {
   ];
   return (
     <main className="w-full h-fit system-padding 6 space-y-4">
+      {/* intro */}
       <Card>
         <CardHeader className="flex-row items-center gap-4">
           <Avatar className="w-24 h-24">
@@ -215,6 +216,7 @@ export default function Home() {
           })}
         </CardFooter>
       </Card>
+      {/* skills */}
       <Card>
         <CardHeader>
           <CardTitle>Skills</CardTitle>
@@ -247,6 +249,7 @@ export default function Home() {
         </CardContent>
         <CardFooter className="justify-center gap-2"></CardFooter>
       </Card>
+      {/* experiences */}
       <Card>
         <CardHeader>
           <CardTitle>Experiences</CardTitle>
@@ -255,43 +258,47 @@ export default function Home() {
           {experiences.map((exp) => {
             return (
               <React.Fragment key={exp.job}>
-                <div className="flex sm:flex-row flex-col gap-4 items-start">
-                  <Avatar className="w-16 h-16">
-                    <AvatarImage src={exp.img} />
-                    <AvatarFallback>{exp.company}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold text-lg">{exp.job}</p>
-                    <p className="">{exp.company}</p>
-                    <p className="text-muted-foreground text-sm">{exp.date}</p>
-                    <p className=" mt-2">{exp.desc}</p>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {exp.skills.map((skill) => {
+                <div className="space-y-4">
+                  <div className="flex flex-row gap-4 items-start">
+                    <Avatar className="w-16 h-16">
+                      <AvatarImage src={exp.img} />
+                      <AvatarFallback>{exp.company}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-semibold text-lg">{exp.job}</p>
+                      <p className="">{exp.company}</p>
+                      <p className="text-muted-foreground text-sm">
+                        {exp.date}
+                      </p>
+                    </div>
+                  </div>
+                  <p>{exp.desc}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {exp.skills.map((skill) => {
+                      return (
+                        <Badge key={skill} variant="default">
+                          {skill}
+                        </Badge>
+                      );
+                    })}
+                  </div>
+                  {exp.links.length ? (
+                    <div className="flex flex-row flex-wrap gap-2 items-center text-sm">
+                      {exp.links.map((link) => {
                         return (
-                          <Badge key={skill} variant="default">
-                            {skill}
-                          </Badge>
+                          <Link
+                            key={link.link}
+                            href={link.link}
+                            target="_blank"
+                            className="underline flex items-center gap-1 "
+                          >
+                            {link.name}
+                            <ExternalLink className="w-4 h-4" />
+                          </Link>
                         );
                       })}
                     </div>
-                    {exp.links.length ? (
-                      <div className="flex flex-row flex-wrap gap-2 items-center mt-2 text-sm">
-                        {exp.links.map((link) => {
-                          return (
-                            <Link
-                              key={link.link}
-                              href={link.link}
-                              target="_blank"
-                              className="underline flex items-center gap-1 "
-                            >
-                              {link.name}
-                              <ExternalLink className="w-4 h-4" />
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    ) : null}
-                  </div>
+                  ) : null}
                 </div>
                 <Separator className="last:hidden" />
               </React.Fragment>
@@ -299,6 +306,7 @@ export default function Home() {
           })}
         </CardContent>
       </Card>
+      {/* projects */}
       <Card>
         <CardHeader>
           <CardTitle>Other Projects</CardTitle>
@@ -311,12 +319,12 @@ export default function Home() {
           {otherprojects.map((project) => {
             return (
               <React.Fragment key={project.name}>
-                <div className="flex sm:flex-row flex-col gap-4 items-start">
-                  <Avatar className="w-16 h-16 bg-black">
-                    <AvatarImage src={project.img} />
-                    <AvatarFallback>{project.name}</AvatarFallback>
-                  </Avatar>
-                  <div>
+                <div className="space-y-4">
+                  <div className="flex flex-row gap-4">
+                    <Avatar className="w-16 h-16 bg-black">
+                      <AvatarImage src={project.img} />
+                      <AvatarFallback>{project.name}</AvatarFallback>
+                    </Avatar>
                     <div className="flex gap-2 items-center">
                       <Link
                         href={project.link}
@@ -336,17 +344,17 @@ export default function Home() {
                         <TbBrandGithub />
                       </Link>
                     </div>
+                  </div>
 
-                    <p>{project.desc}</p>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {project.skills.map((skill) => {
-                        return (
-                          <Badge key={skill} variant="default">
-                            {skill}
-                          </Badge>
-                        );
-                      })}
-                    </div>
+                  <p>{project.desc}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {project.skills.map((skill) => {
+                      return (
+                        <Badge key={skill} variant="default">
+                          {skill}
+                        </Badge>
+                      );
+                    })}
                   </div>
                 </div>
                 <Separator className="last:hidden" />
