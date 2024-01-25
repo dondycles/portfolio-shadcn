@@ -24,6 +24,7 @@ import {
   TbBrandNextjs,
   TbBrandSvelte,
   TbBrandGithub,
+  TbBrandGmail,
 } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 
@@ -39,6 +40,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { ExternalLink } from "lucide-react";
+import { EmailForm } from "@/components/email-form";
 export default function Home() {
   const socials = [
     {
@@ -70,6 +72,11 @@ export default function Home() {
       name: "GitHub",
       link: "https://github.com/dondycles",
       icon: <TbBrandGithub />,
+    },
+    {
+      name: "GMail",
+      link: "mailto:'johnrod.dondoyano@gmail.com'",
+      icon: <TbBrandGmail />,
     },
   ];
   const skills = [
@@ -363,6 +370,14 @@ export default function Home() {
               </React.Fragment>
             );
           })}
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Contact Me</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <EmailForm />
         </CardContent>
       </Card>
       <footer className="space-y-4">
