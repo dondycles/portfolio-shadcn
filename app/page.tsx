@@ -224,8 +224,8 @@ export default function Home() {
         <CardHeader>
           <CardTitle>Skills</CardTitle>
         </CardHeader>
-        <CardContent>
-          <Table>
+        <CardContent className="grid grid-cols-2 sm:grid-cols-3  gap-4">
+          {/* <Table>
             <TableCaption>
               These are the skills I acquired from building websites out of
               curiousity, YouTube tutorials, and side project experiences.
@@ -241,16 +241,22 @@ export default function Home() {
                         {skill.icons}
                       </div>
                     </TableCell>
-                    <TableCell className="w-full">
-                      <Progress className="h-2" value={skill.knowledge} />
-                    </TableCell>
                   </TableRow>
                 );
               })}
             </TableBody>
-          </Table>
+          </Table> */}
+          {skills.map((skill) => {
+            return (
+              <p key={skill.skill} className="flex flex-row gap-1 items-center">
+                {skill.skill}
+                <span className="text-2xl flex items-center">
+                  {skill.icons}
+                </span>
+              </p>
+            );
+          })}
         </CardContent>
-        <CardFooter className="justify-center gap-2"></CardFooter>
       </Card>
       {/* experiences */}
       <Card>
