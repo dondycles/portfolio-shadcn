@@ -24,7 +24,6 @@ import {
   TbBrandNextjs,
   TbBrandSvelte,
   TbBrandGithub,
-  TbBrandGmail,
 } from "react-icons/tb";
 import { Badge } from "@/components/ui/badge";
 
@@ -72,11 +71,6 @@ export default function Home() {
       name: "GitHub",
       link: "https://github.com/dondycles",
       icon: <TbBrandGithub />,
-    },
-    {
-      name: "GMail",
-      link: "mailto:'johnrod.dondoyano@gmail.com'",
-      icon: <TbBrandGmail />,
     },
   ];
   const skills = [
