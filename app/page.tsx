@@ -153,7 +153,7 @@ export default function Home() {
   const otherprojects = [
     {
       name: "Expen//Save",
-      desc: "Simplify your finances with ease. Track expenses, set savings, and gain insights into your spending habits.",
+      desc: "A web app for tracking expenses and savings at the same with analytics and history.",
       link: "https://expensave-shadcn.vercel.app",
       skills: [
         "NextJS",
