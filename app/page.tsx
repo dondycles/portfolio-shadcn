@@ -366,8 +366,7 @@ export default function Home() {
         </CardContent>
       </Card>
       <footer className="space-y-4">
-        <div className="flex flex-row gap-2 justify-center">
-          {" "}
+        <div className="flex flex-row gap-2 justify-center flex-wrap">
           {socials.map((social) => {
             return (
               <Link className="text-xl" target="_blank" href={social.link}>
