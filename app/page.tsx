@@ -237,7 +237,7 @@ export default function Home() {
                       </div>
                     </TableCell>
                     <TableCell className="w-full">
-                      <Progress value={skill.knowledge} />
+                      <Progress className="h-2" value={skill.knowledge} />
                     </TableCell>
                   </TableRow>
                 );
