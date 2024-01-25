@@ -178,7 +178,7 @@ export default function Home() {
     },
   ];
   return (
-    <main className="w-full p-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 2xl:px-96 space-y-4">
+    <main className="w-full h-fit system-padding 6 space-y-4">
       <Card>
         <CardHeader className="flex-row items-center gap-4">
           <Avatar className="w-24 h-24">
