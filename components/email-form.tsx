@@ -41,8 +41,7 @@ export function EmailForm() {
   const [emailSent, setEmailSent] = useState(false);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    const { error, success } = await sendemail(values);
+    const { error } = await sendemail(values);
     if (error) return form.setError("message", { message: String(error) });
     form.reset();
     setEmailSent(true);
