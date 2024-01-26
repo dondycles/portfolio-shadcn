@@ -21,7 +21,7 @@ export const sendemail = async (values: Values) => {
       text: values.message,
       reply_to: values.email,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.log(error);
     if (error) return { error: error };
   }
